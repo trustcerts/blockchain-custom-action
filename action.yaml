@@ -1,0 +1,24 @@
+# action.yaml
+
+name: TrustCerts Custom Blockchain
+description: 'Start a blockchain'
+inputs:
+  did_id:
+    description: the id of the client
+    required: true
+    default: did:trust:tc:dev:id:XLzBJ69tqEgq7oqqCLiEnT
+  network_size:
+    description: choose the network size either small or normal
+    required: true
+    default: "small"
+runs:
+  using: composite
+  steps:
+    - run: |
+        export DID_ID=${{inputs.did_id}}
+        export NETWORK_SIZE=${{inputs.network_size}}
+        chmod 777 setup.sh
+        ./setup.sh
+      shell: bash
+      with:
+        submodule: true
