@@ -1,4 +1,3 @@
-NODE_PATH='../trustchain-config/nodes'
 echo $NODE_PATH
 docker-compose \
     -f "$NODE_PATH/docker-compose.yml" \
