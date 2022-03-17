@@ -22,6 +22,6 @@ runs:
     - run: |
         export DID_ID=${{inputs.did_id}}
         export NETWORK_SIZE=${{inputs.network_size}}
-        chmod 777 ./setup.sh
-        ./setup.sh
+        chmod 777 ${{ github.action_path }}/setup.sh
+        ${{ github.action_path }}/setup.sh
       shell: bash
