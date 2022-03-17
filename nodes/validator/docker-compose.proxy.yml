@@ -1,0 +1,21 @@
+version: '3.8'
+
+networks:
+  proxy:
+    external:
+      name: proxy
+
+services:
+  http:
+    environment:
+      OWN_PEER: ${NETWORK_HOSTNAME-node}.${DOMAIN}
+
+  network:
+    environment:
+      LETSENCRYPT_HOST: ${NETWORK_HOSTNAME-node}.${DOMAIN}
+      VIRTUAL_HOST: ${NETWORK_HOSTNAME-node}.${DOMAIN}
+      VIRTUAL_PORT: 3000
+      OWN_PEER: ${NETWORK_HOSTNAME-node}.${DOMAIN}
+      HTTP_ENDPOINT: ${HTTP_HOSTNAME-api}.${DOMAIN}
+    networks:
+      proxy:

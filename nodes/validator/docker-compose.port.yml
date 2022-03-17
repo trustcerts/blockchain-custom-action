@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  http:
+    environment:
+      OWN_PEER: ${IP_ADDRESS}:${NETWORK_PORT-3000}
+
+  network:
+    environment:
+      OWN_PEER: ${IP_ADDRESS}:${NETWORK_PORT-3000}
+      HTTP_ENDPOINT: ${IP_ADDRESS}:${HTTP_PORT}
+    ports:
+      - '${NETWORK_PORT-3000}:3000'

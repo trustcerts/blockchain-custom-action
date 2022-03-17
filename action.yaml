@@ -23,7 +23,7 @@ runs:
         export DID_ID=${{inputs.did_id}}
         export NETWORK_SIZE=${{inputs.network_size}}
         export GITHUB_PATH=${{github.action_path}}
-        export NODE_PATH=${{github.action_path}}/trustchain-config/nodes
+        export NODE_PATH=${{github.action_path}}/nodes
         chmod 777 ${{ github.action_path }}/setup.sh
         ${{ github.action_path }}/setup.sh
       shell: bash
