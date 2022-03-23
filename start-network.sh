@@ -1,3 +1,5 @@
+echo starting network script
+
 if [[ "$NETWORK_SIZE" == "normal" ]]
 then
     cd $GITHUB_PATH/network

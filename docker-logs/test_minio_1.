@@ -1,0 +1,11 @@
+API: http://192.168.32.3:9000  http://127.0.0.1:9000 
+
+Console: http://192.168.32.3:9001 http://127.0.0.1:9001 
+
+Documentation: https://docs.min.io
+
+ You are running an older version of MinIO released 2 months ago 
+ Update: 
+Run `mc admin update` 
+
+

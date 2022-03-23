@@ -5,20 +5,26 @@ description: 'Start a blockchain'
 inputs:
   did_id:
     description: the id of the client
-    required: true
-    default: did:trust:tc:dev:id:XLzBJ69tqEgq7oqqCLiEnT
+    required: false
+    default: did:trust:tc:test:id:XLzBJ69tqEgq7oqqCLiEnT
   network_size:
     description: choose the network size either small or normal
-    required: true
+    required: false
     default: "small"
+  client_name:
+    description: name of the client
+    required: false
+    default: "client"
+  client_secret:
+    description: secret of the Client
+    required: false
+    default: "client"
+  log_format:
+    description: log format of docker containers
+    required: false
+    default: "log"
 runs:
-  using: composite
-  steps:
-    - run: |
-        export DID_ID=${{inputs.did_id}}
-        export NETWORK_SIZE=${{inputs.network_size}}
-        export GITHUB_PATH=${{github.action_path}}
-        export NODE_PATH=${{github.action_path}}/nodes
-        chmod 777 ${{ github.action_path }}/setup.sh
-        ${{ github.action_path }}/setup.sh
-      shell: bash
+  using: 'node16'
+  main: 'index.js'
+  post: 'cleanup.js'
+
