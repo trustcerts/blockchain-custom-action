@@ -18,14 +18,13 @@ const main = async () => {
     });
 
     const artifactClient = create()
-    const artifactName = 'docker_logs';
-    const path = `${__dirname}/docker_logs`
-    const files = readdirSync(path)
+    const artifactName = 'docker-logs';
+    const path = `${__dirname}/docker_logs`;
+    const files = readdirSync(path).map((file) => `${path}/${file}`);
     const options = {
         continueOnError: true
-    }
-
-    await artifactClient.uploadArtifact(artifactName, files, path, options)
+    };
+    await artifactClient.uploadArtifact(artifactName, files, path, options);
 
 }
 

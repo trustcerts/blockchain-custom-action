@@ -7,7 +7,7 @@ async function run(cmd) {
       // noinspection JSUnresolvedFunction
       ls.stdout.on('data', (data) => {
         console.log(data.toString());
-        getData = data.toString().split('\n')
+        getData = data ? data.toString().split('\n'): []
       });
   
       // noinspection JSUnresolvedFunction
@@ -20,7 +20,10 @@ async function run(cmd) {
       });
   
       ls.on('close', () => {
-        resolve(getData.filter(item => item != ''));
+        if(getData) { 
+          resolve(getData.filter(item => item != ''));
+        }
+        resolve()
       });
     });
   };
