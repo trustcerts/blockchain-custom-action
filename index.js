@@ -1,4 +1,4 @@
-const core  = require('@actions/core');
+const { getInput, setFailed } = require('@actions/core');
 const { run } = require('./shared');
 
 const main = async () => {
@@ -7,11 +7,11 @@ const main = async () => {
        * We need to fetch all the inputs that were provided to our action
        * and store them in variables for us to use.
        **/
-      const did_id = core.getInput('did_id');
-      const network_size = core.getInput('network_size');
-      const client_name = core.getInput('client_name');
-      const client_secret = core.getInput('client_secret');
-      const log_format = core.getInput('log_format');
+      const did_id = getInput('did_id');
+      const network_size = getInput('network_size');
+      const client_name = getInput('client_name');
+      const client_secret = getInput('client_secret');
+      const log_format = getInput('log_format');
         
       // export variables
       await run(`export DID_ID=${did_id}`);
@@ -28,7 +28,7 @@ const main = async () => {
       await run(`bash ${__dirname}/start-network.sh`)
         
     } catch(err) {
-        core.setFailed(error.message);
+        setFailed(error.message);
     }
 }
 
