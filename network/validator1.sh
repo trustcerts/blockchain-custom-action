@@ -1,4 +1,3 @@
-echo $NODE_PATH
 docker-compose \
     -f "$NODE_PATH/docker-compose.yml" \
     -f "$NODE_PATH/http/docker-compose.port.yml" \

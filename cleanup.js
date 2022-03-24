@@ -1,10 +1,13 @@
 const { existsSync , rmSync , mkdirSync , readdirSync} = require('fs');
+const { getInput } = require('@actions/core');
 const { create } = require('@actions/artifact');
 const { run } = require('./shared');
 
 
 
 const main = async () => {
+    const log_format = getInput('log_format');
+    await run(`export LOG_FORMAT=${log_format}`);
     const containers_names = await run("docker ps --format '{{.Names}}'");
 
     // check if folder docker_logs exists if not create one if yes then clean it
