@@ -1,5 +1,5 @@
 const { existsSync , rmSync , mkdirSync , readdirSync} = require('fs');
-const artifact = require('@actions/artifact');
+const { create } = require('@actions/artifact');
 const { run } = require('./shared');
 
 
@@ -17,7 +17,7 @@ const main = async () => {
         await run(`docker logs ${name} > docker_logs/${name}.$LOG_FORMAT`)
     });
 
-    const artifactClient = artifact.create()
+    const artifactClient = create()
     const artifactName = 'docker_logs';
     const path = `${__dirname}/docker_logs`
     const files = readdirSync(path)
@@ -25,7 +25,7 @@ const main = async () => {
         continueOnError: true
     }
 
-    const uploadResult = await artifactClient.uploadArtifact(artifactName, files, path, options)
+    await artifactClient.uploadArtifact(artifactName, files, path, options)
 
 }
 
