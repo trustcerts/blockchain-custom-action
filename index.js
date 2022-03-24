@@ -1,5 +1,5 @@
-const { getInput, setFailed } = require('@actions/core');
-const { run } = require('./shared');
+import { getInput, setFailed } from '@actions/core';
+import { run } from './shared';
 
 const main = async () => {
     try {
