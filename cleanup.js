@@ -1,6 +1,6 @@
-import { existsSync, rmSync, mkdirSync, readdirSync } from 'fs';
-import { create } from '@actions/artifact';
-import { run } from './shared';
+const { existsSync , rmSync , mkdirSync , readdirSync} = require('fs');
+const { create } = require('@actions/artifact');
+const { run } = require('./shared');
 
 
 
