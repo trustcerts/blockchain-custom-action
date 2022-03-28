@@ -16,7 +16,7 @@ const main = async () => {
     };
     mkdirSync(dir);
     containers_names.forEach(async (name)=> {
-        await run(`docker logs ${name} > docker_logs/${name}.${log_format}`)
+        await run(`docker logs ${name} > ${__dirname}/docker_logs/${name}.${log_format}`)
     });
 
     const artifactClient = create()
