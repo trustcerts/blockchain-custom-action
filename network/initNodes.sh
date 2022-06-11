@@ -22,6 +22,6 @@ curl -X POST "http://localhost:4551/init" -H "accept: */*" -H "Authorization: Be
 echo "add observer" &
 curl -X POST "http://localhost:4561/init" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:FDPrCrhPCnVPgSyWEfQyJj\",\"secret\":\"foobar\",\"url\":\"testing-validator1_http_1:3000\"}"
 curl -X POST "http://localhost:4571/init" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:6xNu7M86KFu4B4hYNNg2GD\",\"secret\":\"foobar\",\"url\":\"testing-validator1_http_1:3000\"}"
-echo "add client"
+echo "add client" &
 curl -X POST "http://localhost:4541/did/invite" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"$DID_ID\",\"name\":\"$CLIENT_NAME\",\"secret\":\"$CLIENT_SECRET\",\"role\":\"Client\"}" &
 exit

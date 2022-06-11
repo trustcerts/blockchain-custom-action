@@ -12,10 +12,12 @@ curl -X POST "http://localhost:4501/did/genesis" -H "accept: */*" -H "Authorizat
 
 echo "invite gateway"
 curl -X POST "http://localhost:4501/did/invite" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:4GqRUNp2wRgnHAPUZb8X9X\",\"name\":\"Gateway1\",\"secret\":\"foobar\",\"role\":\"Gateway\"}"
-curl -X POST "http://localhost:4501/did/invite" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:BfjXrhHYXJd7Rg9HaD3ocX\",\"name\":\"Gateway2\",\"secret\":\"foobar\",\"role\":\"Gateway\"}"
 echo "invite observer" &
 curl -X POST "http://localhost:4501/did/invite" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:FDPrCrhPCnVPgSyWEfQyJj\",\"name\":\"Observer1\",\"secret\":\"foobar\",\"role\":\"Observer\"}"
-curl -X POST "http://localhost:4501/did/invite" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:6xNu7M86KFu4B4hYNNg2GD\",\"name\":\"Observer2\",\"secret\":\"foobar\",\"role\":\"Observer\"}"
-echo "add client"
-curl -X POST "http://localhost:4541/did/invite" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"$DID_ID\",\"name\":\"client\",\"secret\":\"client\",\"role\":\"Client\"}" &
+echo "add gateway" &
+curl -X POST "http://localhost:4541/init" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:4GqRUNp2wRgnHAPUZb8X9X\",\"secret\":\"foobar\",\"url\":\"testing-validator1_http_1:3000\"}"
+echo "add observer" &
+curl -X POST "http://localhost:4561/init" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"did:trust:tc:test:id:FDPrCrhPCnVPgSyWEfQyJj\",\"secret\":\"foobar\",\"url\":\"testing-validator1_http_1:3000\"}"
+echo "add client" &
+curl -X POST "http://localhost:4541/did/invite" -H "accept: */*" -H "Authorization: Bearer test" -H "Content-Type: application/json" -d "{\"id\":\"$DID_ID\",\"name\":\"$CLIENT_NAME\",\"secret\":\"$CLIENT_SECRET\",\"role\":\"Client\"}" &
 exit
