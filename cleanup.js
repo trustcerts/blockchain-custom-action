@@ -7,7 +7,7 @@ const { run } = require('./shared');
 
 const main = async () => {
     const log_format = getInput('log_format');
-    const containers_names = await run("docker ps --format '{{.Names}}'");
+    const containers_names = await run("docker ps -a --format '{{.Names}}'");
 
     // check if folder docker_logs exists if not create one if yes then clean it
     const dir = `${__dirname}/docker_logs`;
