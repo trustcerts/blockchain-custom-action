@@ -3,6 +3,12 @@
 
 
 
+# What does it do?
+<b>The main aim of this action to help our repo to create a custom test blockchain
+
+
+
+
 # Valid inputs 
 <b>if nothing were given then the value will be the default value
 
@@ -27,6 +33,11 @@
     default: "log"
 
 
+##  image_tag:
+    description: tag of the docker image 
+    default: "latest"
+
+
 
 # Example of how it works
 ```
@@ -38,4 +49,5 @@
     client_name: dev
     client_secret: dev
     log_format: json
+    image_tag: latest
 ```

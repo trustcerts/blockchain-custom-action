@@ -20,7 +20,7 @@ const main = async () => {
     });
 
     const artifactClient = create()
-    const artifactName = 'docker-logs';
+    const artifactName = `docker-logs${Math.floor(Math.random()*1000000)}`;
     const path = `${__dirname}/docker_logs`;
     const files = readdirSync(path).map((file) => `${path}/${file}`);
     const options = {

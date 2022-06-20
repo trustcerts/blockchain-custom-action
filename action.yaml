@@ -23,6 +23,10 @@ inputs:
     description: log format of docker containers
     required: false
     default: "log"
+  image_tag:
+    description: tag of the docker image 
+    required: false
+    default: "latest"
 runs:
   using: 'node16'
   main: 'index.js'
