@@ -6,7 +6,7 @@ inputs:
   did_id:
     description: the id of the client
     required: false
-    default: did:trust:tc:dev:id:XLzBJ69tqEgq7oqqCLiEnT
+    default: did:trust:tc:test:id:XLzBJ69tqEgq7oqqCLiEnT
   network_size:
     description: choose the network size either small or normal
     required: false

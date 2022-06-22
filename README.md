@@ -14,7 +14,7 @@
 
 ## did_id:
     description: the id of the client
-    default: did:trust:tc:dev:id:XLzBJ69tqEgq7oqqCLiEnT
+    default: did:trust:tc:test:id:XLzBJ69tqEgq7oqqCLiEnT
 
 ##  network_size:
     description: choose the network size either small or normal
@@ -50,9 +50,4 @@
     client_secret: dev
     log_format: json
     image_tag: latest
-```
-
-# Example of how to start it local
-```
-NETWORK_SIZE=normal GITHUB_PATH=. NODE_PATH=../nodes IMAGE_TAG=latest ./start-network.sh 
 ```
