@@ -56,4 +56,6 @@
 
 
 # Start a blockchain local 
-```NETWORK_SIZE=normal IMAGE_TAG=latest GITHUB_PATH=. NODE_PATH=../nodes DID_ID=did:trust:tc:test:id:XLzBJ69tqEgq7oqqCLiEnT CLIENT_NAME=client CLIENT_SECRET=client  ./start-network.sh ```
+```
+NETWORK_SIZE=normal IMAGE_TAG=latest GITHUB_PATH=. NODE_PATH=../nodes DID_ID=did:trust:tc:test:id:XLzBJ69tqEgq7oqqCLiEnT CLIENT_NAME=client CLIENT_SECRET=client  ./start-network.sh 
+```
